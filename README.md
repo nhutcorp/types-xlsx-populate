@@ -6,7 +6,7 @@ This is not yet published in [DefinitelyTyped](https://github.com/DefinitelyType
 
 ```
 "dependencies": {
-    "@types/xlsx-populate": "git+https://github.com/JanLoebel/types-xlsx-populate.git"
+    "@types/xlsx-populate": "git+https://github.com/nhutcorp/types-xlsx-populate.git"
 },
 ```
 

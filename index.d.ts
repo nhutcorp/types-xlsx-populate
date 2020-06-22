@@ -1,5 +1,5 @@
 // Type definitions for XLSX-Populate
-// Project: https://github.com/dtjohnson/xlsx-populate
+// Project: https://github.com/nhutcorp/types-xlsx-populate
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.4
 export = XlsxPopulate
@@ -27,8 +27,8 @@ declare namespace XlsxPopulate {
     sheet(sheetNameOrIndex: number | string): Sheet
     sheets(): Sheet[]
     property(name: string): any
-    property(names: string[]): {[key: string]: any}
-    property(properties: {[key: string]: any}): Workbook
+    property(names: string[]): { [key: string]: any }
+    property(properties: { [key: string]: any }): Workbook
     property(name: string, value: any): Workbook
     properties(): CoreProperties
     toFileAsync(path: string, opts?: object): Promise<void>
@@ -79,10 +79,10 @@ declare namespace XlsxPopulate {
     printOptions(attributeName: string, attributeEnabled: undefined | boolean): Sheet
     printGridLines(): boolean
     printGridLines(enabled: undefined | boolean): Sheet
-    panes(opts : PanesOptions): Sheet
+    panes(opts: PanesOptions): Sheet
     freezePanes(xSplit: number, ySplit: number): Sheet
     freezePanes(topLeftCell: string): Sheet
-    splitPanes(xSplit : number, ySplit : number): Sheet
+    splitPanes(xSplit: number, ySplit: number): Sheet
     resetPanes(): Sheet
     pageMargins(attributeName: string): number
     pageMargins(attributeName: string, attributeStringValue: undefined | number | string): Sheet
@@ -93,7 +93,7 @@ declare namespace XlsxPopulate {
 
   class Row {
     address(opts?: object): string
-    cell(columnNameOrNumber: string | number ): Cell
+    cell(columnNameOrNumber: string | number): Cell
     height(): undefined | number
     height(height: number): Row
     hidden(): boolean
@@ -101,9 +101,9 @@ declare namespace XlsxPopulate {
     rowNumber(): number
     sheet(): Sheet
     style(name: string): any
-    style(names: string[]): {[key: string]: any}
+    style(names: string[]): { [key: string]: any }
     style(name: string, value: any): Cell
-    style(styles: {[key: string]: any}): Cell
+    style(styles: { [key: string]: any }): Cell
     style(style: Style): Cell
     workbook(): Workbook
     addPageBreak(): Row
@@ -133,16 +133,21 @@ declare namespace XlsxPopulate {
     rowNumber(): number
     sheet(): Sheet
     style(name: string): any
-    style(names: string[]): {[key: string]: any}
+    style(names: string[]): { [key: string]: any }
     style(name: string, value: any): Cell
     style(name: any[][]): Range
-    style(styles: {[key: string]: any}): Cell
+    style(styles: { [key: string]: any }): Cell
     style(style: Style): Cell
-    value(): string | boolean | number | Date | undefined
-    value(value: string | boolean | number | null | undefined): Cell
+    value(): string | boolean | number | Date | undefined | RichText
+    value(value: string | boolean | number | null | undefined | RichText): Cell
     value(): Range
     workbook(): Workbook
     addHorizontalPageBreak(): Cell
+  }
+
+  class RichText {
+    text(): string
+    add(value: any, style?: any): any
   }
 
   class Column {
@@ -154,9 +159,9 @@ declare namespace XlsxPopulate {
     hidden(hidden: boolean): Column
     sheet(): Sheet
     style(name: string): any
-    style(names: string[]): {[key: string]: any}
+    style(names: string[]): { [key: string]: any }
     style(name: string, value: any): Cell
-    style(styles: {[key: string]: any}): Cell
+    style(styles: { [key: string]: any }): Cell
     style(style: Style): Cell
     width(): undefined | number
     width(width: number): Column
@@ -195,10 +200,10 @@ declare namespace XlsxPopulate {
     sheet(): Sheet
     startCell(): Cell
     style(name: string): any[][]
-    style(names: string[]): {[key: string]: any[][]}
+    style(names: string[]): { [key: string]: any[][] }
     style(name: string): Range
     style(name: string, value: any): Range
-    style(styles: {[key: string]: Function | any[][] | any}): Range
+    style(styles: { [key: string]: Function | any[][] | any }): Range
     style(style: Style): Range
     tap(callback: Function): Range
     thru(callback: Function): any
@@ -222,7 +227,7 @@ declare namespace XlsxPopulate {
     tint?: number
   }
 
-  class Style {
+  class Style {
     bold?: boolean
     italic?: boolean
     underline?: boolean | string
@@ -289,7 +294,7 @@ declare namespace XlsxPopulate {
   }
 
   class GradientFill {
-    type:	string
+    type: string
     gradientType?: string
     stops: {
       position: number
